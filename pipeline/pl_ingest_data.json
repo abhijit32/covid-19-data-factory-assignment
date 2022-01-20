@@ -65,6 +65,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"expression": {
+						"value": "@equals(activity('Check Metadata').output.columnCount, 13)",
+						"type": "Expression"
+					},
 					"ifTrueActivities": [
 						{
 							"name": "Copy population data",
