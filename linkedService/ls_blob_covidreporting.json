@@ -1,0 +1,11 @@
+{
+	"name": "ls_blob_covidreporting",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"serviceEndpoint": "https://strgaccount013.blob.core.windows.net",
+			"accountKind": "StorageV2"
+		}
+	}
+}
