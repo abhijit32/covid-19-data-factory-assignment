@@ -11,6 +11,9 @@
 		"ls_datalake_covidreporting_properties_typeProperties_url": {
 			"value": "https://coviddatalake019.dfs.core.windows.net"
 		},
+		"trg_create_source_properties_typeProperties_scope": {
+			"value": "/subscriptions/4ff3d32b-bb1d-42aa-8a7f-9078cde6afac/resourceGroups/covid-reporting-rg/providers/Microsoft.Storage/storageAccounts/strgaccount013"
+		},
 		"containerUri": {
 			"value": ""
 		},
