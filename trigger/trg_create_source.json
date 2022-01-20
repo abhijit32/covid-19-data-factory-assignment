@@ -1,0 +1,17 @@
+{
+	"name": "trg_create_source",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/population/blobs/population_by_age.tsv.gz",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/4ff3d32b-bb1d-42aa-8a7f-9078cde6afac/resourceGroups/covid-reporting-rg/providers/Microsoft.Storage/storageAccounts/strgaccount013",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
