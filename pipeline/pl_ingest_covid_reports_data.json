@@ -201,6 +201,14 @@
 				}
 			}
 		],
+		"parameters": {
+			"sourceRelativeURL": {
+				"type": "string"
+			},
+			"sinkFileName": {
+				"type": "string"
+			}
+		},
 		"variables": {
 			"var": {
 				"type": "String"
