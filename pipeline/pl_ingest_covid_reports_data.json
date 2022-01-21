@@ -3,82 +3,6 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Fetch covid reports",
-				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "Loop through configs",
-						"dependencyConditions": [
-							"Failed"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "DelimitedTextSource",
-						"storeSettings": {
-							"type": "HttpReadSettings",
-							"requestMethod": "GET"
-						},
-						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
-						}
-					},
-					"sink": {
-						"type": "DelimitedTextSink",
-						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
-						},
-						"formatSettings": {
-							"type": "DelimitedTextWriteSettings",
-							"quoteAllText": true,
-							"fileExtension": ".txt"
-						}
-					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "ds_covid_reports_http",
-						"type": "DatasetReference",
-						"parameters": {
-							"relativeURL": {
-								"value": "@pipeline().parameters.sourceRelativeURL",
-								"type": "Expression"
-							}
-						}
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "ds_covid_reports_dl",
-						"type": "DatasetReference",
-						"parameters": {
-							"filename": {
-								"value": "@pipeline().parameters.sinkFileName",
-								"type": "Expression"
-							}
-						}
-					}
-				]
-			},
-			{
 				"name": "Check config file",
 				"type": "Lookup",
 				"dependsOn": [],
@@ -129,7 +53,7 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Fetch covid reports_copy1",
+							"name": "Fetch covid reports",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
