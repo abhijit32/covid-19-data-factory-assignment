@@ -105,7 +105,8 @@
 					"dataset": {
 						"referenceName": "ds_config",
 						"type": "DatasetReference"
-					}
+					},
+					"firstRowOnly": false
 				}
 			},
 			{
