@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Fetch cases death http data",
+				"name": "Fetch covid reports",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -48,7 +48,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_cases_deaths_http",
+						"referenceName": "ds_covid_reports_http",
 						"type": "DatasetReference",
 						"parameters": {
 							"relativeURL": {
@@ -60,7 +60,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_cases_deaths_dl",
+						"referenceName": "ds_covid_reports_dl",
 						"type": "DatasetReference",
 						"parameters": {
 							"filename": {
