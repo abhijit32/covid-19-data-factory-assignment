@@ -156,7 +156,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"items": {
-								"value": "@activity('Check config file').output",
+								"value": "@activity('Check config file').output.value",
 								"type": "Expression"
 							},
 							"isSequential": true,
