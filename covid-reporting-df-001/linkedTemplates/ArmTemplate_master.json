@@ -15,13 +15,13 @@
 			"type": "string",
 			"defaultValue": "https://coviddatalake019.dfs.core.windows.net"
 		},
-		"trg_create_source_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/4ff3d32b-bb1d-42aa-8a7f-9078cde6afac/resourceGroups/covid-reporting-rg/providers/Microsoft.Storage/storageAccounts/strgaccount013"
-		},
 		"ls_http_git_covidReports_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://github.com"
+		},
+		"trg_create_source_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/4ff3d32b-bb1d-42aa-8a7f-9078cde6afac/resourceGroups/covid-reporting-rg/providers/Microsoft.Storage/storageAccounts/strgaccount013"
 		},
 		"containerUri": {
 			"type": "string",
@@ -56,11 +56,11 @@
 					"ls_datalake_covidreporting_properties_typeProperties_url": {
 						"value": "[parameters('ls_datalake_covidreporting_properties_typeProperties_url')]"
 					},
-					"trg_create_source_properties_typeProperties_scope": {
-						"value": "[parameters('trg_create_source_properties_typeProperties_scope')]"
-					},
 					"ls_http_git_covidReports_properties_typeProperties_url": {
 						"value": "[parameters('ls_http_git_covidReports_properties_typeProperties_url')]"
+					},
+					"trg_create_source_properties_typeProperties_scope": {
+						"value": "[parameters('trg_create_source_properties_typeProperties_scope')]"
 					}
 				}
 			},
