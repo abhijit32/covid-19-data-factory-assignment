@@ -9,7 +9,7 @@
 					{
 						"activity": "Loop through configs",
 						"dependencyConditions": [
-							"Succeeded"
+							"Failed"
 						]
 					}
 				],
@@ -201,14 +201,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"sourceRelativeURL": {
-				"type": "string"
-			},
-			"sinkFileName": {
-				"type": "string"
-			}
-		},
 		"variables": {
 			"var": {
 				"type": "String"
