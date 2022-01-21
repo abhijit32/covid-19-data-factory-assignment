@@ -367,7 +367,8 @@
 								"referenceName": "ds_config",
 								"type": "DatasetReference",
 								"parameters": {}
-							}
+							},
+							"firstRowOnly": false
 						}
 					},
 					{
