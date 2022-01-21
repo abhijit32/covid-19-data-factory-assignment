@@ -56,11 +56,11 @@
 					"ls_datalake_covidreporting_properties_typeProperties_url": {
 						"value": "[parameters('ls_datalake_covidreporting_properties_typeProperties_url')]"
 					},
-					"ls_http_git_covidReports_properties_typeProperties_url": {
-						"value": "[parameters('ls_http_git_covidReports_properties_typeProperties_url')]"
-					},
 					"trg_create_source_properties_typeProperties_scope": {
 						"value": "[parameters('trg_create_source_properties_typeProperties_scope')]"
+					},
+					"ls_http_git_covidReports_properties_typeProperties_url": {
+						"value": "[parameters('ls_http_git_covidReports_properties_typeProperties_url')]"
 					}
 				}
 			},

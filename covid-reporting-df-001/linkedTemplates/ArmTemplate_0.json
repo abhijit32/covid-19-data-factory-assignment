@@ -15,13 +15,13 @@
 			"type": "string",
 			"defaultValue": "https://coviddatalake019.dfs.core.windows.net"
 		},
-		"ls_http_git_covidReports_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://github.com"
-		},
 		"trg_create_source_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/4ff3d32b-bb1d-42aa-8a7f-9078cde6afac/resourceGroups/covid-reporting-rg/providers/Microsoft.Storage/storageAccounts/strgaccount013"
+		},
+		"ls_http_git_covidReports_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://github.com"
 		}
 	},
 	"variables": {
@@ -51,6 +51,26 @@
 				"type": "AzureBlobFS",
 				"typeProperties": {
 					"url": "[parameters('ls_datalake_covidreporting_properties_typeProperties_url')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trg_create_source')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/population/blobs/population_by_age.tsv.gz",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('trg_create_source_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
 				}
 			},
 			"dependsOn": []
@@ -130,7 +150,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ds_cases_deaths_http')]",
+			"name": "[concat(parameters('factoryName'), '/ds_covid_reports_http')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -166,7 +186,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ds_cases_deaths_dl')]",
+			"name": "[concat(parameters('factoryName'), '/ds_covid_reports_dl')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -381,7 +401,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Fetch cases death http data",
+						"name": "Fetch covid reports",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -426,7 +446,7 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "ds_cases_deaths_http",
+								"referenceName": "ds_covid_reports_http",
 								"type": "DatasetReference",
 								"parameters": {
 									"relativeURL": {
@@ -438,7 +458,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "ds_cases_deaths_dl",
+								"referenceName": "ds_covid_reports_dl",
 								"type": "DatasetReference",
 								"parameters": {
 									"filename": {
@@ -467,38 +487,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/ds_cases_deaths_http')]",
-				"[concat(variables('factoryId'), '/datasets/ds_cases_deaths_dl')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/trg_create_source')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "pl_ingest_population_data",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "BlobEventsTrigger",
-				"typeProperties": {
-					"blobPathBeginsWith": "/population/blobs/population_by_age.tsv.gz",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('trg_create_source_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pl_ingest_population_data')]"
+				"[concat(variables('factoryId'), '/datasets/ds_covid_reports_http')]",
+				"[concat(variables('factoryId'), '/datasets/ds_covid_reports_dl')]"
 			]
 		}
 	]
