@@ -2,16 +2,16 @@
 	"name": "ds_country_lookup",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_blob_covidreporting",
+			"referenceName": "ls_datalake_covidreporting",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation",
+				"type": "AzureBlobFSLocation",
 				"fileName": "country_lookup.csv",
-				"container": "lookup"
+				"fileSystem": "lookup"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
