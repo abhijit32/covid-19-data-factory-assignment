@@ -1,0 +1,20 @@
+{
+	"name": "ds_hospital_adm_weekly",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_datalake_covidreporting",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "ecdc/hospital_admissions_weekly",
+				"fileSystem": "processed"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
