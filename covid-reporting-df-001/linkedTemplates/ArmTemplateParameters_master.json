@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "covid-reporting-df-001"
 		},
+		"ls_sql_covid_db_connectionString": {
+			"value": ""
+		},
 		"ls_blob_covidreporting_properties_typeProperties_serviceEndpoint": {
 			"value": "https://strgaccount013.blob.core.windows.net"
 		},

@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "covid-reporting-df-001"
 		},
+		"ls_sql_covid_db_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sql_covid_db'"
+		},
 		"ls_blob_covidreporting_properties_typeProperties_serviceEndpoint": {
 			"type": "string",
 			"defaultValue": "https://strgaccount013.blob.core.windows.net"
@@ -49,6 +53,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"ls_sql_covid_db_connectionString": {
+						"value": "[parameters('ls_sql_covid_db_connectionString')]"
 					},
 					"ls_blob_covidreporting_properties_typeProperties_serviceEndpoint": {
 						"value": "[parameters('ls_blob_covidreporting_properties_typeProperties_serviceEndpoint')]"
